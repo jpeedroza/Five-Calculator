@@ -6,9 +6,14 @@ public class App {
   public static void main(String[] args) {
 
     Scanner input = new Scanner(System.in);
-    String menu = "Qual operação deseja utilizar?\n" + " 1 - Soma\n" + " 2 - Subtração\n" + " 3 - Multiplicação\n"
-        + " 4 - Divisão\n" + " 5 - Potencia\n" + " 6 - Seno\n" + " 7 - Cosseno\n" + " 8 - Logaritmo\n" + " 9 - Clear\n"
-        + " 0 - Sair";
+    String menu = "__________________________________\n" + "| ------------------------------ |\n"
+        + "| Qual operação deseja utilizar? |\n" + "| ------------------------------ |\n"
+        + "| 1 | Soma                       |\n" + "| 2 | Subtração                  |\n"
+        + "| 3 | Multiplicação              |\n" + "| 4 | Divisão                    |\n"
+        + "| 5 | Potencia                   |\n" + "| 6 | Seno                       |\n"
+        + "| 7 | Cosseno                    |\n" + "| 8 | Logaritmo                  |\n"
+        + "| 9 | Limpar                     |\n" + "| 0 | Sair                       |\n"
+        + "|________________________________|";
 
     boolean continuar = true;
     double resultado = 0;
@@ -30,38 +35,59 @@ public class App {
         wait = input.next().charAt(0);
         break;
       case 2:
-        resultado = calcSubs(input);
-        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        if (wait == 'n') {
+          resultado = calcSubs(input, 0);
+        } else {
+          resultado = calcSubs(input, resultado);
+        }
         wait = input.next().charAt(0);
         break;
       case 3:
-        resultado = calcMultiply(input);
-        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        if (wait == 'n') {
+          resultado = calcMultiply(input, 0);
+        } else {
+          resultado = calcMultiply(input, resultado);
+        }
         wait = input.next().charAt(0);
         break;
       case 4:
-        resultado = calcDivide(input);
-        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        if (wait == 'n') {
+          resultado = calcDivide(input, 0);
+        } else {
+          resultado = calcDivide(input, resultado);
+        }
         wait = input.next().charAt(0);
         break;
       case 5:
-        resultado = calcPow(input);
-        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        if (wait == 'n') {
+          resultado = calcPow(input, 0);
+        } else {
+          resultado = calcPow(input, resultado);
+        }
         wait = input.next().charAt(0);
         break;
       case 6:
-        resultado = calcSin(input);
-        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        if (wait == 'n') {
+          resultado = calcSin(input, 0);
+        } else {
+          resultado = calcSin(input, resultado);
+        }
         wait = input.next().charAt(0);
         break;
       case 7:
-        resultado = calcCos(input);
-        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        if (wait == 'n') {
+          resultado = calcCos(input, 0);
+        } else {
+          resultado = calcCos(input, resultado);
+        }
         wait = input.next().charAt(0);
         break;
       case 8:
-        resultado = calcLog(input);
-        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        if (wait == 'n') {
+          resultado = calcLog(input, 0);
+        } else {
+          resultado = calcLog(input, resultado);
+        }
         wait = input.next().charAt(0);
         break;
       case 9:
@@ -179,12 +205,12 @@ public class App {
     /*
      * JLabel resultLabel = new JLabel("Resultado: " + result); JButton copy = new
      * JButton("Copiar"); copy.addActionListener(new ActionListener() {
-     * 
+     *
      * @Override public void actionPerformed(ActionEvent e) { Clipboard clip =
      * frame.getToolkit().getSystemClipboard(); String results =
      * Double.toString(result); StringSelection selection = new
      * StringSelection(results); clip.setContents(selection, null); } });
-     * 
+     *
      * JPanel panel = new JPanel(); panel.add(resultLabel); panel.add(copy);
      * frame.add(panel, BorderLayout.CENTER); frame.setSize(200, 100);
      * frame.setLocationRelativeTo(null); frame.setVisible(true);
