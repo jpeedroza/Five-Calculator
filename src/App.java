@@ -1,7 +1,5 @@
 import java.util.*;
 import javax.swing.*;
-// import java.awt.*;
-// import java.awt.event.*;
 import java.awt.datatransfer.*;
 
 public class App {
@@ -31,25 +29,45 @@ public class App {
         }
         wait = input.next().charAt(0);
         break;
-      /*
-       * case 2: resultado = calcSubs(input); System.out.println("Sua resposta é: " +
-       * resultado + ". Press n to continue..."); wait = input.next().charAt(0);
-       * break; case 3: resultado = calcMultiply(input);
-       * System.out.println("Sua resposta é: " + resultado +
-       * ". Press n to continue..."); wait = input.next().charAt(0); break; case 4:
-       * resultado = calcDivide(input); System.out.println("Sua resposta é: " +
-       * resultado + ". Press n to continue..."); wait = input.next().charAt(0);
-       * break; case 5: resultado = calcPow(input);
-       * System.out.println("Sua resposta é: " + resultado +
-       * ". Press n to continue..."); wait = input.next().charAt(0); break; case 6:
-       * resultado = calcSin(input); System.out.println("Sua resposta é: " + resultado
-       * + ". Press n to continue..."); wait = input.next().charAt(0); break; case 7:
-       * resultado = calcCos(input); System.out.println("Sua resposta é: " + resultado
-       * + ". Press n to continue..."); wait = input.next().charAt(0); break; case 8:
-       * resultado = calcLog(input); System.out.println("Sua resposta é: " + resultado
-       * + ". Press n to continue..."); wait = input.next().charAt(0); break; case 9:
-       * resultado = 0; break;
-       */
+      case 2:
+        resultado = calcSubs(input);
+        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        wait = input.next().charAt(0);
+        break;
+      case 3:
+        resultado = calcMultiply(input);
+        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        wait = input.next().charAt(0);
+        break;
+      case 4:
+        resultado = calcDivide(input);
+        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        wait = input.next().charAt(0);
+        break;
+      case 5:
+        resultado = calcPow(input);
+        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        wait = input.next().charAt(0);
+        break;
+      case 6:
+        resultado = calcSin(input);
+        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        wait = input.next().charAt(0);
+        break;
+      case 7:
+        resultado = calcCos(input);
+        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        wait = input.next().charAt(0);
+        break;
+      case 8:
+        resultado = calcLog(input);
+        System.out.println("Sua resposta é: " + resultado + ". Press n to continue...");
+        wait = input.next().charAt(0);
+        break;
+      case 9:
+        resultado = 0;
+        break;
+
       default:
         continuar = false;
         break;
@@ -59,15 +77,22 @@ public class App {
     System.exit(0);
   }
 
-  // Alterar para dois inputs de DOUBLE
   public static double calcSum(Scanner input, double pastValue) {
-    double n1, n2;
+    double n1, n2, result;
     try {
-      System.out.println("Informe o Primeiro número para soma: ");
+      if (pastValue == 0) {
+        System.out.println("Informe o Primeiro número para soma: ");
+        n1 = input.nextDouble();
+        System.out.println("Informe o Segundo número para soma: ");
+        n2 = input.nextDouble();
+        result = n1 + n2;
+        showResult(result);
+        System.out.println("Sua resposta é: " + result + ". Press n to continue...");
+        return result;
+      }
+      System.out.println("Informe o número seguinte para soma: ");
       n1 = input.nextDouble();
-      System.out.println("Informe o Segundo número para soma: ");
-      n2 = input.nextDouble();
-      double result = n1 + n2;
+      result = n1 + pastValue;
       showResult(result);
       System.out.println("Sua resposta é: " + result + ". Press n to continue...");
       return result;
