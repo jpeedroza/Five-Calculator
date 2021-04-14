@@ -17,3 +17,10 @@ Calculadora que realiza cálculos simples, abaixo segue o menu da calculadora on
 *Após realizar um cálculo, você poderá prosseguir para uma nova operação mantendo o resultado da operação anterior e utilizando-o como novo operando.
 
 *Após cada operação, o resultado será automaticamente copiado para o clipboard.
+
+*Para inicializar o aplicativo deve-se dar os seguintes comandos:
+
+```bash
+  javac App.java
+  java App
+```
