@@ -15,87 +15,87 @@ public class App {
         + "| 9 | Limpar                     |\n" + "| 0 | Sair                       |\n"
         + "|________________________________|";
 
-    boolean continuar = true;
-    double resultado = 0;
-    int operacao = 1;
-    char wait = 'n';
+    boolean working = true;
+    double result = 0;
+    int operation = 1;
+    char reUseLastExp = 'n';
 
-    while (continuar) {
+    while (working) {
 
       System.out.println(menu);
-      operacao = input.nextInt();
+      operation = input.nextInt();
 
-      switch (operacao) {
+      switch (operation) {
       case 1:
-        if (wait == 'n') {
-          resultado = calcSum(input, 0);
+        if (reUseLastExp == 'n') {
+          result = calcSum(input, 0);
         } else {
-          resultado = calcSum(input, resultado);
+          result = calcSum(input, result);
         }
-        wait = input.next().charAt(0);
+        reUseLastExp = input.next().charAt(0);
         break;
       case 2:
-        if (wait == 'n') {
-          resultado = calcSubs(input, 0);
+        if (reUseLastExp == 'n') {
+          result = calcSubs(input, 0);
         } else {
-          resultado = calcSubs(input, resultado);
+          result = calcSubs(input, result);
         }
-        wait = input.next().charAt(0);
+        reUseLastExp = input.next().charAt(0);
         break;
       case 3:
-        if (wait == 'n') {
-          resultado = calcMultiply(input, 0);
+        if (reUseLastExp == 'n') {
+          result = calcMultiply(input, 0);
         } else {
-          resultado = calcMultiply(input, resultado);
+          result = calcMultiply(input, result);
         }
-        wait = input.next().charAt(0);
+        reUseLastExp = input.next().charAt(0);
         break;
       case 4:
-        if (wait == 'n') {
-          resultado = calcDivide(input, 0);
+        if (reUseLastExp == 'n') {
+          result = calcDivide(input, 0);
         } else {
-          resultado = calcDivide(input, resultado);
+          result = calcDivide(input, result);
         }
-        wait = input.next().charAt(0);
+        reUseLastExp = input.next().charAt(0);
         break;
       case 5:
-        if (wait == 'n') {
-          resultado = calcPow(input, 0);
+        if (reUseLastExp == 'n') {
+          result = calcPow(input, 0);
         } else {
-          resultado = calcPow(input, resultado);
+          result = calcPow(input, result);
         }
-        wait = input.next().charAt(0);
+        reUseLastExp = input.next().charAt(0);
         break;
       case 6:
-        if (wait == 'n') {
-          resultado = calcSin(input, 0);
+        if (reUseLastExp == 'n') {
+          result = calcSin(input, 0);
         } else {
-          resultado = calcSin(input, resultado);
+          result = calcSin(input, result);
         }
-        wait = input.next().charAt(0);
+        reUseLastExp = input.next().charAt(0);
         break;
       case 7:
-        if (wait == 'n') {
-          resultado = calcCos(input, 0);
+        if (reUseLastExp == 'n') {
+          result = calcCos(input, 0);
         } else {
-          resultado = calcCos(input, resultado);
+          result = calcCos(input, result);
         }
-        wait = input.next().charAt(0);
+        reUseLastExp = input.next().charAt(0);
         break;
       case 8:
-        if (wait == 'n') {
-          resultado = calcLog(input, 0);
+        if (reUseLastExp == 'n') {
+          result = calcLog(input, 0);
         } else {
-          resultado = calcLog(input, resultado);
+          result = calcLog(input, result);
         }
-        wait = input.next().charAt(0);
+        reUseLastExp = input.next().charAt(0);
         break;
       case 9:
-        resultado = 0;
+        result = 0;
         break;
 
       default:
-        continuar = false;
+        working = false;
         break;
       }
     }
@@ -112,108 +112,165 @@ public class App {
         System.out.println("Informe o Segundo número para soma: ");
         n2 = input.nextDouble();
         result = n1 + n2;
-        showResult(result);
-        System.out.println("Sua resposta é: " + result + ". Press n to continue...");
-        return result;
+        return showResult(result);
+      } else {
+        System.out.println("Informe o número seguinte para soma: ");
+        n1 = input.nextDouble();
+        result = pastValue + n1;
+        return showResult(result);
       }
-      System.out.println("Informe o número seguinte para soma: ");
-      n1 = input.nextDouble();
-      result = n1 + pastValue;
-      showResult(result);
-      System.out.println("Sua resposta é: " + result + ". Press n to continue...");
-      return result;
     } catch (Exception err) {
       System.out.println("******\nErro na captura dos dados, insira os números corretamente\n******");
       return 0;
     }
   }
 
-  public static double calcSubs(Scanner input) {
-    System.out.println("Informe o Primeiro número para a subtracão: ");
-    double n1 = input.nextDouble();
-    System.out.println("Informe o Segundo número para a subtracão: ");
-    double n2 = input.nextDouble();
-    double result = n1 - n2;
-    showResult(result);
-    return result;
+  public static double calcSubs(Scanner input, double pastValue) {
+    double n1, n2, result;
+    try {
+      if (pastValue == 0) {
+        System.out.println("Informe o Primeiro número para a subtracão: ");
+        n1 = input.nextDouble();
+        System.out.println("Informe o Segundo número para a subtracão: ");
+        n2 = input.nextDouble();
+        result = n1 - n2;
+        return showResult(result);
+      } else {
+        System.out.println("Informe o número seguinte para a subtracão: ");
+        n1 = input.nextDouble();
+        result = pastValue - n1;
+        return showResult(result);
+      }
+    } catch (Exception err) {
+      System.out.println("******\nErro na captura dos dados, insira os números corretamente\n******");
+      return 0;
+    }
   }
 
-  public static double calcMultiply(Scanner input) {
-    System.out.println("Informe o Primeiro número para a multiplicacao: ");
-    double n1 = input.nextDouble();
-    System.out.println("Informe o Segundo número para a multiplicacao: ");
-    double n2 = input.nextDouble();
-    double result = n1 * n2;
-    showResult(result);
-    return result;
+  public static double calcMultiply(Scanner input, double pastValue) {
+    double n1, n2, result;
+    try {
+      if (pastValue == 0) {
+        System.out.println("Informe o Primeiro número para a multiplicacao: ");
+        n1 = input.nextDouble();
+        System.out.println("Informe o Segundo número para a multiplicacao: ");
+        n2 = input.nextDouble();
+        result = n1 * n2;
+        return showResult(result);
+      } else {
+        System.out.println("Informe o número seguinte para a multiplicacao: ");
+        n1 = input.nextDouble();
+        result = pastValue * n1;
+        return showResult(result);
+      }
+    } catch (Exception err) {
+      System.out.println("******\nErro na captura dos dados, insira os números corretamente\n******");
+      return 0;
+    }
   }
 
-  public static double calcDivide(Scanner input) {
-    System.out.println("Informe o Primeiro número para o dividendo: ");
-    double n1 = input.nextDouble();
-    System.out.println("Informe o Segundo número para o divisor: ");
-    double n2 = input.nextDouble();
-    double result = n1 / n2;
-    showResult(result);
-    return result;
+  public static double calcDivide(Scanner input, double pastValue) {
+    double n1, n2, result;
+    try {
+      if (pastValue == 0) {
+        System.out.println("Informe o Primeiro número para o dividendo: ");
+        n1 = input.nextDouble();
+        System.out.println("Informe o Segundo número para o divisor: ");
+        n2 = input.nextDouble();
+        result = n1 / n2;
+        return showResult(result);
+      } else {
+        System.out.println("Informe o número seguinte para o divisor: ");
+        n1 = input.nextDouble();
+        result = pastValue / n1;
+        return showResult(result);
+      }
+    } catch (Exception err) {
+      System.out.println("******\nErro na captura dos dados, insira os números corretamente\n******");
+      return 0;
+    }
   }
 
-  public static double calcPow(Scanner input) {
-    System.out.println("Informe o Primeiro número para a base: ");
-    double n1 = input.nextDouble();
-    System.out.println("Informe o Segundo número para o expoente: ");
-    double n2 = input.nextDouble();
-    double result = Math.pow(n1, n2);
-    showResult(result);
-    return result;
+  public static double calcPow(Scanner input, double pastValue) {
+    double n1, n2, result;
+    try {
+      if (pastValue == 0) {
+        System.out.println("Informe o Primeiro número para a base: ");
+        n1 = input.nextDouble();
+        System.out.println("Informe o Segundo número para o expoente: ");
+        n2 = input.nextDouble();
+        result = Math.pow(n1, n2);
+        return showResult(result);
+      } else {
+        System.out.println("Informe o número seguinte para o expoente: ");
+        n1 = input.nextDouble();
+        result = Math.pow(pastValue, n1);
+        return showResult(result);
+      }
+    } catch (Exception err) {
+      System.out.println("******\nErro na captura dos dados, insira os números corretamente\n******");
+      return 0;
+    }
   }
 
-  public static double calcSin(Scanner input) {
-    System.out.println("Informe o número em ângulo para o calculo do Seno: ");
-    double n1 = input.nextDouble();
-    double radian = Math.toRadians(n1);
-    n1 = Math.sin(radian);
-    showResult(n1);
-    return n1;
+  public static double calcSin(Scanner input, double pastValue) {
+    double n1, radian;
+    try {
+      System.out.println("Informe o número em ângulo para o calculo do Seno: ");
+      n1 = input.nextDouble();
+      radian = Math.toRadians(n1);
+      n1 = Math.sin(radian);
+      return showResult(n1);
+    } catch (Exception err) {
+      System.out.println("******\nErro na captura dos dados, insira os números corretamente\n******");
+      return 0;
+    }
   }
 
-  public static double calcCos(Scanner input) {
-    System.out.println("Informe o número em ângulo para o calculo do Coseno: ");
-    double n1 = input.nextDouble();
-    double radian = Math.toRadians(n1);
-    n1 = Math.cos(radian);
-    showResult(n1);
-    return n1;
+  public static double calcCos(Scanner input, double pastValue) {
+    double n1, radian;
+    try {
+      System.out.println("Informe o número em ângulo para o calculo do Coseno: ");
+      n1 = input.nextDouble();
+      radian = Math.toRadians(n1);
+      n1 = Math.cos(radian);
+      return showResult(n1);
+    } catch (Exception err) {
+      System.out.println("******\nErro na captura dos dados, insira os números corretamente\n******");
+      return 0;
+    }
   }
 
-  public static double calcLog(Scanner input) {
-    System.out.println("Informe o Segundo número para o Logaritmando: ");
-    double n1 = input.nextDouble();
-    System.out.println("Informe o Primeiro número para a base: ");
-    double n2 = input.nextDouble();
-    double result = Math.log(n1) / Math.log(n2);
-    showResult(result);
-    return result;
+  public static double calcLog(Scanner input, double pastValue) {
+    double n1, n2, result;
+    try {
+      if (pastValue == 0) {
+        System.out.println("Informe o Segundo número para o Logaritmando: ");
+        n1 = input.nextDouble();
+        System.out.println("Informe o Primeiro número para a base: ");
+        n2 = input.nextDouble();
+        result = Math.log(n1) / Math.log(n2);
+        return showResult(result);
+      } else {
+        System.out.println("Informe o número seguinte para o Logaritmando: ");
+        n1 = input.nextDouble();
+        result = Math.log(n1) / Math.log(pastValue);
+        return showResult(result);
+      }
+    } catch (Exception err) {
+      System.out.println("******\nErro na captura dos dados, insira os números corretamente\n******");
+      return 0;
+    }
   }
 
-  public static void showResult(double result) {
+  public static double showResult(double result) {
     JFrame frame = new JFrame();
     Clipboard clip = frame.getToolkit().getSystemClipboard();
     String results = Double.toString(result);
     StringSelection selection = new StringSelection(results);
     clip.setContents(selection, null);
-    /*
-     * JLabel resultLabel = new JLabel("Resultado: " + result); JButton copy = new
-     * JButton("Copiar"); copy.addActionListener(new ActionListener() {
-     *
-     * @Override public void actionPerformed(ActionEvent e) { Clipboard clip =
-     * frame.getToolkit().getSystemClipboard(); String results =
-     * Double.toString(result); StringSelection selection = new
-     * StringSelection(results); clip.setContents(selection, null); } });
-     *
-     * JPanel panel = new JPanel(); panel.add(resultLabel); panel.add(copy);
-     * frame.add(panel, BorderLayout.CENTER); frame.setSize(200, 100);
-     * frame.setLocationRelativeTo(null); frame.setVisible(true);
-     */
+    System.out.println(
+        "Sua resposta é: " + Math.round(result * 100.0) / 100.0 + ". Press [Y/n] to continue with this result...");
+    return result;
   }
 }
