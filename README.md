@@ -21,6 +21,11 @@ Calculadora que realiza cálculos simples, abaixo segue o menu da calculadora on
 *Para inicializar o aplicativo deve-se dar os seguintes comandos:
 
 ```bash
-  javac App.java
-  java App
+  ./calc.sh
+```
+
+*Se não houver permissão de leitura do script, executar seguinte comando:
+
+```bash
+  sudo chmod u+x calc.sh
 ```
