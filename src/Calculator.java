@@ -15,13 +15,13 @@ public class Calculator {
     double number1, number2, result;
     try {
       if (this.pastValue == 0) {
-        System.out.println("Informe o Primeiro número para soma: ");
+        System.out.print("Informe o Primeiro número para soma: ");
         number1 = input.nextDouble();
-        System.out.println("Informe o Segundo número para soma: ");
+        System.out.print("Informe o Segundo número para soma: ");
         number2 = input.nextDouble();
         result = number1 + number2;
       } else {
-        System.out.println("Informe o número seguinte para soma: ");
+        System.out.print("Informe o número seguinte para soma: ");
         number1 = input.nextDouble();
         result = number1 + this.pastValue;
       }
@@ -37,13 +37,13 @@ public class Calculator {
     double number1, number2, result;
     try {
       if (this.pastValue == 0) {
-        System.out.println("Informe o Primeiro número para a subtracão: ");
+        System.out.print("Informe o Primeiro número para a subtracão: ");
         number1 = input.nextDouble();
-        System.out.println("Informe o Segundo número para a subtracão: ");
+        System.out.print("Informe o Segundo número para a subtracão: ");
         number2 = input.nextDouble();
         result = number1 - number2;
       } else {
-        System.out.println("Informe o número seguinte para a subtracão: ");
+        System.out.print("Informe o número seguinte para a subtracão: ");
         number1 = input.nextDouble();
         result = this.pastValue - number1;
       }
@@ -59,13 +59,13 @@ public class Calculator {
     double number1, number2, result;
     try {
       if (this.pastValue == 0) {
-        System.out.println("Informe o Primeiro número para a multiplicacao: ");
+        System.out.print("Informe o Primeiro número para a multiplicacao: ");
         number1 = input.nextDouble();
-        System.out.println("Informe o Segundo número para a multiplicacao: ");
+        System.out.print("Informe o Segundo número para a multiplicacao: ");
         number2 = input.nextDouble();
         result = number1 * number2;
       } else {
-        System.out.println("Informe o número seguinte para a multiplicacao: ");
+        System.out.print("Informe o número seguinte para a multiplicacao: ");
         number1 = input.nextDouble();
         result = this.pastValue * number1;
       }
@@ -81,13 +81,13 @@ public class Calculator {
     double number1, number2, result;
     try {
       if (this.pastValue == 0) {
-        System.out.println("Informe o Primeiro número para o dividendo: ");
+        System.out.print("Informe o Primeiro número para o dividendo: ");
         number1 = input.nextDouble();
-        System.out.println("Informe o Segundo número para o divisor: ");
+        System.out.print("Informe o Segundo número para o divisor: ");
         number2 = input.nextDouble();
         result = number1 / number2;
       } else {
-        System.out.println("Informe o número seguinte para o divisor: ");
+        System.out.print("Informe o número seguinte para o divisor: ");
         number1 = input.nextDouble();
         result = this.pastValue / number1;
       }
@@ -103,13 +103,13 @@ public class Calculator {
     double number1, number2, result;
     try {
       if (this.pastValue == 0) {
-        System.out.println("Informe o Primeiro número para a base: ");
+        System.out.print("Informe o Primeiro número para a base: ");
         number1 = input.nextDouble();
-        System.out.println("Informe o Segundo número para o expoente: ");
+        System.out.print("Informe o Segundo número para o expoente: ");
         number2 = input.nextDouble();
         result = Math.pow(number1, number2);
       } else {
-        System.out.println("Informe o número seguinte para o expoente: ");
+        System.out.print("Informe o número seguinte para o expoente: ");
         number1 = input.nextDouble();
         result = Math.pow(this.pastValue, number1);
       }
@@ -124,7 +124,7 @@ public class Calculator {
   public double sin() {
     double number1, radian;
     try {
-      System.out.println("Informe o número em ângulo para o calculo do Seno: ");
+      System.out.print("Informe o número em ângulo para o calculo do Seno: ");
       number1 = input.nextDouble();
       radian = Math.toRadians(number1);
       number1 = Math.sin(radian);
@@ -139,7 +139,7 @@ public class Calculator {
   public double cos() {
     double number1, radian;
     try {
-      System.out.println("Informe o número em ângulo para o calculo do Coseno: ");
+      System.out.print("Informe o número em ângulo para o calculo do Coseno: ");
       number1 = input.nextDouble();
       radian = Math.toRadians(number1);
       number1 = Math.cos(radian);
@@ -155,13 +155,13 @@ public class Calculator {
     double number1, number2, result;
     try {
       if (this.pastValue == 0) {
-        System.out.println("Informe o Segundo número para o Logaritmando: ");
+        System.out.print("Informe o Segundo número para o Logaritmando: ");
         number1 = input.nextDouble();
-        System.out.println("Informe o Primeiro número para a base: ");
+        System.out.print("Informe o Primeiro número para a base: ");
         number2 = input.nextDouble();
         result = Math.log(number1) / Math.log(number2);
       } else {
-        System.out.println("Informe o número seguinte para o Logaritmando: ");
+        System.out.print("Informe o número seguinte para o Logaritmando: ");
         number1 = input.nextDouble();
         result = Math.log(number1) / Math.log(this.pastValue);
       }
@@ -179,8 +179,8 @@ public class Calculator {
     String results = Double.toString(result);
     StringSelection selection = new StringSelection(results);
     clip.setContents(selection, null);
-    System.out.println(
-        "Sua resposta é: " + Math.round(result * 100.0) / 100.0 + ". Press [Y/n] to continue with this result...");
+    System.out.println("| Sua resposta é: " + Math.round(result * 100.0) / 100.0 + " |\n"
+        + ". Pressione [n] para limpar o resultado anterior ou qualquer letra para usá-lo como operando:");
     return result;
   }
 
