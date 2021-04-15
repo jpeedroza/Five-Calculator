@@ -21,7 +21,7 @@ public class App {
 
     while (working) {
 
-      System.out.println(menu);
+      System.out.print(menu + "\n Opção -> ");
       operation = input.nextInt();
 
       switch (operation) {
@@ -57,7 +57,7 @@ public class App {
         if (reUseLastExp == 'n') {
           calc.clear();
         }
-        calc.divide();
+        calc.pow();
         reUseLastExp = input.next().charAt(0);
         break;
       case 6:
