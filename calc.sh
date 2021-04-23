@@ -1,4 +1,5 @@
 cd src/
+mkdir run
 javac App.java -d ./run
 javac Calculator.java -d ./run
 cd run/
