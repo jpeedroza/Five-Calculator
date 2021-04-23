@@ -1,5 +1,7 @@
 # Renatinho Calculator
 
+![Java Version](https://img.shields.io/badge/java-11.0.10-red?style=for-the-badge&logo=java)
+
 Calculadora que realiza cálculos simples, abaixo segue o menu da calculadora onde poderá selecionar a opção desejada.
 
 ## Instalação
@@ -17,6 +19,7 @@ Se não houver permissão de leitura do script, executar seguinte comando:
 ```
 
 ## Menu
+
 <img src="./menu.png">
 
 1. Realiza a Soma de dois operandos;
