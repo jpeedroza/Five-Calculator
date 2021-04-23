@@ -1,3 +1,5 @@
 concept.md
 *.class
 *.drawio
+run/
+.DS_Store
