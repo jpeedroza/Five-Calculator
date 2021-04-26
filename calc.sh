@@ -1,8 +1,13 @@
+#!/bin/bash
+
 cd src/
-mkdir run
-javac App.java -d ./run
-javac Calculator.java -d ./run
-cd run/
-java App
-cd ..
-cd ..
+if [ -d "run/" ]
+then 
+  cd run
+  java App
+else
+  mkdir run
+  javac App.java -d run/
+  cd run
+  java App
+fi
