@@ -4,7 +4,8 @@ public class App {
   public static void main(String[] args) {
 
     Scanner input = new Scanner(System.in);
-    Calculator calc = new Calculator(input);
+    Calculator calc = new Calculator();
+    IO io = new IO();
 
     String menu = "__________________________________\n" + "| ------------------------------ |\n"
         + "| Qual operação deseja utilizar? |\n" + "| ------------------------------ |\n"
@@ -17,7 +18,7 @@ public class App {
 
     boolean working = true;
     int operation = 1;
-    char reUseLastExp = 'n';
+    double result = 0;
 
     while (working) {
 
@@ -26,69 +27,40 @@ public class App {
 
       switch (operation) {
       case 1:
-        if (reUseLastExp == 'n') {
-          calc.clear();
-        }
-        calc.sum();
-        reUseLastExp = input.next().charAt(0);
+        result = calc.sum(io.twoOperators());
         break;
       case 2:
-        if (reUseLastExp == 'n') {
-          calc.clear();
-        }
-        calc.subs();
-        reUseLastExp = input.next().charAt(0);
+        result = calc.subs(io.twoOperators());
         break;
       case 3:
-        if (reUseLastExp == 'n') {
-          calc.clear();
-        }
-        calc.multiply();
-        reUseLastExp = input.next().charAt(0);
+        result = calc.multiply(io.twoOperators());
         break;
       case 4:
-        if (reUseLastExp == 'n') {
-          calc.clear();
-        }
-        calc.divide();
-        reUseLastExp = input.next().charAt(0);
+        result = calc.divide(io.twoOperators());
         break;
       case 5:
-        if (reUseLastExp == 'n') {
-          calc.clear();
-        }
-        calc.pow();
-        reUseLastExp = input.next().charAt(0);
+        result = calc.pow(io.twoOperators());
         break;
       case 6:
-        if (reUseLastExp == 'n') {
-          calc.clear();
-        }
-        calc.sin();
-        reUseLastExp = input.next().charAt(0);
+        result = calc.sin(io.oneOperator());
         break;
       case 7:
-        if (reUseLastExp == 'n') {
-          calc.clear();
-        }
-        calc.cos();
-        reUseLastExp = input.next().charAt(0);
+        result = calc.cos(io.oneOperator());
         break;
       case 8:
-        if (reUseLastExp == 'n') {
-          calc.clear();
-        }
-        calc.log();
-        reUseLastExp = input.next().charAt(0);
+        result = calc.log(io.twoOperators());
         break;
       case 9:
-        calc.clear();
+        io.clear();
         break;
 
       default:
         working = false;
         break;
       }
+
+      if (working)
+        io.showResult(result);
     }
     input.close();
     System.exit(0);

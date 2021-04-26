@@ -3,3 +3,5 @@ concept.md
 *.drawio
 run/
 .DS_Store
+
+.vscode/
